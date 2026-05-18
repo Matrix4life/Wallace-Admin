@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wallace Admin | Virtual Admin for Therapists & Private Practices</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy:#1c2f4a; --navy2:#243d5c; --rose:#c4788a; --rose2:#d4899a;
+  --blush:#f7eef1; --blush2:#eddde3; --slate:#6a7a8a; --white:#fff; --off:#fdf9fa;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--navy);overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(253,249,250,0.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(196,120,138,0.12);padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between;}
+.nb{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.nb svg{width:38px;height:38px;}
+.nb-name{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:var(--navy);}
+.nb-sub{font-size:9px;letter-spacing:0.16em;color:var(--rose);text-transform:uppercase;margin-top:1px;}
+.nl{display:flex;align-items:center;gap:30px;list-style:none;}
+.nl a{font-size:13px;color:var(--navy);text-decoration:none;opacity:0.65;transition:opacity 0.2s;}
+.nl a:hover{opacity:1;}
+.nl .cta{background:var(--navy);color:var(--white)!important;opacity:1!important;padding:9px 20px;border-radius:3px;font-size:12px;letter-spacing:0.05em;transition:background 0.2s!important;}
+.nl .cta:hover{background:var(--rose)!important;}
+.hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+.hbg span{display:block;width:22px;height:1.5px;background:var(--navy);}
+.mob{display:none;position:fixed;top:68px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--blush2);padding:20px 24px;flex-direction:column;gap:18px;z-index:998;box-shadow:0 8px 24px rgba(0,0,0,0.06);}
+.mob.open{display:flex;}
+.mob a{font-size:15px;color:var(--navy);text-decoration:none;opacity:0.75;}
+
+/* HERO */
+.hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;padding:120px 48px 80px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;width:650px;height:650px;border-radius:50%;background:radial-gradient(circle,rgba(196,120,138,0.12) 0%,transparent 70%);top:-100px;right:-100px;pointer-events:none;}
+.hero::after{content:'';position:absolute;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(196,120,138,0.06) 0%,transparent 70%);bottom:-80px;left:-60px;pointer-events:none;}
+.hi{max-width:680px;position:relative;z-index:2;}
+.htag{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose);margin-bottom:28px;display:flex;align-items:center;gap:12px;}
+.htag::before{content:'';display:block;width:36px;height:1px;background:var(--rose);opacity:0.5;}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(54px,6.5vw,86px);font-weight:700;line-height:1.04;color:var(--white);letter-spacing:-0.02em;margin-bottom:24px;}
+.hero h1 em{color:var(--rose);font-style:italic;}
+.hd{font-size:17px;color:rgba(255,255,255,0.5);line-height:1.75;font-weight:300;max-width:500px;margin-bottom:44px;}
+.hbtns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn{display:inline-block;text-decoration:none;padding:14px 32px;border-radius:3px;font-size:13px;font-weight:500;letter-spacing:0.05em;transition:all 0.2s;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;}
+.btn-rose{background:var(--rose);color:var(--white);}
+.btn-rose:hover{background:var(--rose2);transform:translateY(-1px);}
+.btn-outline{background:transparent;color:rgba(255,255,255,0.55);border:1px solid rgba(255,255,255,0.15);}
+.btn-outline:hover{color:var(--white);border-color:rgba(255,255,255,0.35);}
+.hfm{position:absolute;right:48px;top:50%;transform:translateY(-50%);opacity:0.05;pointer-events:none;z-index:1;}
+.hstats{position:absolute;right:60px;bottom:80px;z-index:2;display:flex;flex-direction:column;gap:20px;text-align:right;}
+.hsn{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:700;color:var(--white);line-height:1;}
+.hsl{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--rose);margin-top:2px;}
+.hsd{width:1px;height:40px;background:rgba(196,120,138,0.2);margin-left:auto;}
+
+/* STRIP */
+.strip{background:var(--blush);border-bottom:1px solid var(--blush2);padding:22px 48px;display:flex;gap:36px;flex-wrap:wrap;justify-content:center;align-items:center;}
+.si{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--navy);opacity:0.8;}
+.sd{width:5px;height:5px;border-radius:50%;background:var(--rose);flex-shrink:0;}
+
+/* SHARED */
+.sec{padding:96px 48px;}
+.ey{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);display:flex;align-items:center;gap:10px;margin-bottom:14px;}
+.ey::before{content:'';display:block;width:28px;height:1px;background:var(--rose);opacity:0.5;}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,3.5vw,52px);font-weight:700;line-height:1.1;color:var(--navy);letter-spacing:-0.02em;margin-bottom:18px;}
+.lead{font-size:15px;color:var(--slate);line-height:1.8;font-weight:300;max-width:520px;}
+
+/* ABOUT */
+.about{background:var(--white);}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;}
+.apt{margin-top:32px;display:flex;flex-direction:column;gap:14px;}
+.ap{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--navy);line-height:1.65;}
+.ap::before{content:'✦';color:var(--rose);font-size:10px;margin-top:3px;flex-shrink:0;}
+.ac{background:var(--navy);border-radius:4px;padding:52px 44px;position:relative;overflow:hidden;}
+.ac::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--rose);}
+.ac::after{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(196,120,138,0.1) 0%,transparent 70%);bottom:-60px;right:-60px;pointer-events:none;}
+.aq{font-family:'Cormorant Garamond',serif;font-size:26px;font-style:italic;font-weight:600;color:var(--white);line-height:1.5;margin-bottom:28px;position:relative;z-index:1;}
+.aa{font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:var(--rose);position:relative;z-index:1;}
+.abs{display:flex;flex-direction:column;gap:12px;margin-top:36px;position:relative;z-index:1;}
+.ab{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:3px;padding:12px 16px;display:flex;align-items:center;gap:12px;font-size:13px;color:rgba(255,255,255,0.75);}
+.abi{color:var(--rose);flex-shrink:0;}
+
+/* SERVICES */
+.services{background:var(--off);}
+.sh{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;margin-bottom:52px;}
+.sg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--blush2);border:2px solid var(--blush2);border-radius:4px;overflow:hidden;}
+.sc{background:var(--white);padding:36px 28px;transition:background 0.22s;}
+.sc:hover{background:var(--blush);}
+.sci{color:var(--rose);margin-bottom:16px;display:block;}
+.sci svg{width:36px;height:36px;}
+.scn{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--navy);margin-bottom:10px;line-height:1.2;}
+.scd{font-size:13px;color:var(--slate);line-height:1.7;font-weight:300;}
+
+/* DIFFERENCE */
+.diff{background:var(--navy);}
+.dg{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:center;}
+.diff h2{color:var(--white);}
+.diff .lead{color:rgba(255,255,255,0.45);margin-top:16px;}
+.diff .ey{color:var(--rose);}
+.diff .ey::before{background:var(--rose);}
+.dl{display:flex;flex-direction:column;}
+.di{padding:26px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:flex;gap:20px;align-items:flex-start;}
+.di:first-child{padding-top:0;}
+.di:last-child{border-bottom:none;}
+.dn{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:700;color:var(--rose);opacity:0.3;min-width:32px;line-height:1;}
+.dt h4{font-size:16px;font-weight:500;color:var(--white);margin-bottom:6px;}
+.dt p{font-size:13px;color:rgba(255,255,255,0.4);line-height:1.7;font-weight:300;}
+
+/* PRICING */
+.pricing{background:var(--white);}
+.ph{text-align:center;margin-bottom:52px;}
+.ph .ey{justify-content:center;}
+.ph .ey::before{display:none;}
+.ph .lead{margin:0 auto;text-align:center;}
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--blush2);border:2px solid var(--blush2);border-radius:4px;overflow:hidden;max-width:900px;margin:0 auto 24px;}
+.pc{background:var(--white);padding:44px 32px;position:relative;}
+.pc.ft{background:var(--navy);}
+.pb{position:absolute;top:18px;right:18px;font-size:9px;letter-spacing:0.12em;text-transform:uppercase;background:var(--rose);color:var(--white);padding:4px 10px;border-radius:2px;}
+.pt{font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--rose);margin-bottom:14px;}
+.pc.ft .pt{color:var(--rose2);}
+.pa{font-family:'Cormorant Garamond',serif;font-size:54px;font-weight:700;line-height:1;color:var(--navy);}
+.pc.ft .pa{color:var(--white);}
+.pp{font-size:13px;font-weight:300;color:var(--slate);margin-bottom:6px;}
+.pc.ft .pp{color:rgba(255,255,255,0.4);}
+.phr{font-size:12px;color:var(--slate);margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid var(--blush2);}
+.pc.ft .phr{color:rgba(255,255,255,0.35);border-bottom-color:rgba(255,255,255,0.1);}
+.pf{list-style:none;display:flex;flex-direction:column;gap:11px;}
+.pf li{font-size:13px;display:flex;align-items:flex-start;gap:10px;line-height:1.55;color:var(--navy);}
+.pc.ft .pf li{color:rgba(255,255,255,0.7);}
+.pck{color:var(--rose);font-size:12px;margin-top:2px;flex-shrink:0;}
+.pc .pbtn{display:block;text-align:center;margin-top:28px;background:var(--blush);color:var(--navy);font-size:12px;padding:11px;border-radius:3px;text-decoration:none;letter-spacing:0.05em;transition:background 0.2s;}
+.pc .pbtn:hover{background:var(--blush2);}
+.pc.ft .pbtn{background:var(--rose);color:var(--white);}
+.pc.ft .pbtn:hover{background:var(--rose2);}
+.pn{text-align:center;font-size:13px;color:var(--slate);font-weight:300;}
+
+/* HOW IT WORKS */
+.hiw{background:var(--blush);}
+.hh{text-align:center;margin-bottom:56px;}
+.hh .ey{justify-content:center;}
+.hh .ey::before{display:none;}
+.hh .lead{margin:0 auto;text-align:center;}
+.hs{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--blush2);border:2px solid var(--blush2);border-radius:4px;overflow:hidden;}
+.hsp{background:var(--white);padding:36px 28px;}
+.hsn2{font-family:'Cormorant Garamond',serif;font-size:60px;font-weight:700;color:var(--rose);opacity:0.18;line-height:1;margin-bottom:14px;}
+.hst{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--navy);margin-bottom:10px;}
+.hsd2{font-size:13px;color:var(--slate);line-height:1.7;font-weight:300;}
+
+/* CTA BANNER */
+.ctab{background:var(--navy);padding:108px 48px;text-align:center;position:relative;overflow:hidden;}
+.ctab::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(196,120,138,0.1) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;}
+.ctab-big{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5.5vw,68px);font-weight:700;font-style:italic;color:var(--white);margin-bottom:12px;position:relative;}
+.ctab-big em{color:var(--rose);font-style:normal;}
+.ctab-sub{font-size:16px;color:rgba(255,255,255,0.4);font-weight:300;margin-bottom:36px;position:relative;}
+.ctab-email{display:inline-block;font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--rose);text-decoration:none;border-bottom:1px solid rgba(196,120,138,0.3);padding-bottom:4px;margin-bottom:40px;position:relative;transition:border-color 0.2s;}
+.ctab-email:hover{border-color:var(--rose);}
+.ctab-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;}
+.btn-wh{background:var(--white);color:var(--navy);}
+.btn-wh:hover{transform:translateY(-1px);}
+.btn-gl{background:transparent;color:rgba(255,255,255,0.45);border:1px solid rgba(255,255,255,0.15);}
+.btn-gl:hover{color:var(--white);border-color:rgba(255,255,255,0.3);}
+
+/* CONTACT */
+.contact{background:var(--off);}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start;}
+.ci{padding-top:8px;}
+.cd{margin-top:28px;}
+.cd+.cd{margin-top:20px;}
+.cdl{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--rose);margin-bottom:4px;}
+.cdv{font-size:15px;color:var(--navy);}
+.cdv a{color:var(--navy);text-decoration:none;border-bottom:1px solid var(--blush2);transition:border-color 0.2s;}
+.cdv a:hover{border-color:var(--rose);}
+.cf{background:var(--white);border-radius:4px;padding:44px 40px;border:1px solid var(--blush2);}
+.fg{margin-bottom:18px;}
+.fl{display:block;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--slate);margin-bottom:8px;}
+input,select,textarea{width:100%;padding:12px 14px;font-family:'DM Sans',sans-serif;font-size:14px;border:1px solid var(--blush2);border-radius:3px;background:var(--off);color:var(--navy);transition:border-color 0.2s;outline:none;appearance:none;}
+input:focus,select:focus,textarea:focus{border-color:var(--rose);background:var(--white);}
+textarea{resize:vertical;min-height:110px;line-height:1.6;}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.fsub{width:100%;padding:14px;background:var(--navy);color:var(--white);border:none;border-radius:3px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.06em;cursor:pointer;transition:background 0.2s;margin-top:4px;}
+.fsub:hover{background:var(--rose);}
+.fn{font-size:11px;color:var(--slate);text-align:center;margin-top:12px;line-height:1.6;}
+
+/* FOOTER */
+footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:44px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;}
+.fb{display:flex;align-items:center;gap:12px;}
+.fb svg{width:34px;height:34px;}
+.fn2{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--white);}
+.fs{font-size:11px;color:var(--rose);font-style:italic;margin-top:2px;}
+.fls{display:flex;gap:28px;flex-wrap:wrap;}
+.fls a{font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none;transition:color 0.2s;}
+.fls a:hover{color:rgba(255,255,255,0.7);}
+.fc{font-size:11px;color:rgba(255,255,255,0.18);}
+
+/* MOBILE */
+@media(max-width:900px){
+  nav{padding:0 24px;}
+  .nl{display:none;}
+  .hbg{display:flex;}
+  .sec,.hero,.ctab,.contact,.hiw,.pricing,.about,.services,.diff{padding:72px 24px;}
+  .strip{padding:18px 24px;gap:18px;}
+  .ag,.sh,.dg,.cg{grid-template-columns:1fr;gap:36px;}
+  .sg,.pg{grid-template-columns:1fr;}
+  .hs{grid-template-columns:1fr 1fr;}
+  .hstats,.hfm{display:none;}
+  .fr{grid-template-columns:1fr;}
+  footer{flex-direction:column;text-align:center;}
+  .fls{justify-content:center;}
+}
+@media(max-width:480px){.hs{grid-template-columns:1fr;}}
+
+/* ANIMATIONS */
+.fu{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.fu.in{opacity:1;transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#home" class="nb">
+    <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="36" cy="36" r="34" fill="#1c2f4a"/>
+      <circle cx="36" cy="36" r="34" fill="none" stroke="#c4788a" stroke-width="2.5"/>
+      <polyline points="16,22 26,52 36,34 46,52 56,22" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="36" cy="62" r="2.5" fill="#c4788a"/>
+    </svg>
+    <div><div class="nb-name">Wallace Admin</div><div class="nb-sub">Virtual Admin for Therapists</div></div>
+  </a>
+  <ul class="nl">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#hiw">How it works</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="cta">Get started</a></li>
+  </ul>
+  <div class="hbg" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="mob" id="mob">
+  <a href="#about" onclick="cm()">About</a>
+  <a href="#services" onclick="cm()">Services</a>
+  <a href="#pricing" onclick="cm()">Pricing</a>
+  <a href="#hiw" onclick="cm()">How it works</a>
+  <a href="#contact" onclick="cm()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <svg class="hfm" width="460" height="460" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="36" cy="36" r="34" fill="none" stroke="#c4788a" stroke-width="0.8"/>
+    <polyline points="16,22 26,52 36,34 46,52 56,22" fill="none" stroke="#c4788a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="36" cy="62" r="1.5" fill="#c4788a"/>
+  </svg>
+  <div class="hi">
+    <div class="htag">Virtual Admin for Therapists & Private Practices</div>
+    <h1>Your practice,<br><em>handled.</em></h1>
+    <p class="hd">I take the admin off your plate — scheduling, billing, intake, EHR, phone calls, and social media — so you can stay focused on your clients.</p>
+    <div class="hbtns">
+      <a href="#contact" class="btn btn-rose">Get started today</a>
+      <a href="#about" class="btn btn-outline">Learn more →</a>
+    </div>
+  </div>
+  <div class="hstats">
+    <div class="hsn">5+</div><div class="hsl">Years experience</div>
+    <div class="hsd"></div>
+    <div class="hsn">NJ</div><div class="hsl">& Nationwide</div>
+    <div class="hsd"></div>
+    <div class="hsn">1:1</div><div class="hsl">Direct service</div>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip">
+  <div class="si"><div class="sd"></div>HIPAA Compliant</div>
+  <div class="si"><div class="sd"></div>SimplePractice & ZocDoc</div>
+  <div class="si"><div class="sd"></div>Not an agency — you get Amy directly</div>
+  <div class="si"><div class="sd"></div>New Jersey & Nationwide</div>
+  <div class="si"><div class="sd"></div>Starting at $29/hr</div>
+</div>
+
+<!-- ABOUT -->
+<section class="about sec" id="about">
+  <div class="ag">
+    <div class="fu">
+      <div class="ey">About Amy</div>
+      <h2>The admin side,<br>from the inside.</h2>
+      <p class="lead">I'm Amy Wallace — a virtual admin specialist with 5+ years of hands-on experience working inside a real private therapy practice. I know this world from the inside: the intake paperwork, the insurance headaches, the no-show follow-ups, the EHR quirks, and the scheduling gaps that cost therapists real time and real money.</p>
+      <div class="apt">
+        <div class="ap">Not a general VA — real hands-on experience inside a working therapy practice from day one.</div>
+        <div class="ap">You get me directly, every call, every email, every day. No agency. No handoffs. No strangers.</div>
+        <div class="ap">Available morning and evening — because therapists don't stop at 5pm, and neither do I.</div>
+        <div class="ap">Fully HIPAA-compliant across every communication, record, and platform I touch.</div>
+      </div>
+    </div>
+    <div class="ac fu">
+      <div class="aq">"Therapists are exceptional at what they do. Running a practice shouldn't get in the way of that."</div>
+      <div class="aa">— Amy Wallace, Wallace Admin</div>
+      <div class="abs">
+        <div class="ab"><span class="abi">✦</span>5+ years inside a private therapy practice</div>
+        <div class="ab"><span class="abi">✦</span>Fluent in SimplePractice & ZocDoc</div>
+        <div class="ab"><span class="abi">✦</span>BAA signed before anything begins</div>
+        <div class="ab"><span class="abi">✦</span>New Jersey & nationwide remote</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services sec" id="services">
+  <div class="sh">
+    <div class="fu">
+      <div class="ey">Services</div>
+      <h2>Everything that pulls you away from your clients.</h2>
+    </div>
+    <div class="fu">
+      <p class="lead">I handle all the non-clinical operations of your practice — from the first inquiry to the final invoice — so you can stay focused on the people who need you.</p>
+    </div>
+  </div>
+  <div class="sg fu">
+
+    <div class="sc">
+      <span class="sci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+      <div class="scn">Scheduling & Calendar Management</div>
+      <div class="scd">Full appointment management — new client scheduling, cancellations, reschedules, and automated reminders. Your calendar stays clean so no-shows stay rare.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span>
+      <div class="scn">Client Intake & Onboarding</div>
+      <div class="scd">Send, follow up on, and manage all intake forms and consent documents. New clients are fully set up before their first session — without you touching a thing.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span>
+      <div class="scn">Billing & Insurance</div>
+      <div class="scd">Client invoicing, insurance claim submission, payment follow-ups, and denial tracking. You get paid consistently — without chasing a single invoice yourself.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></span>
+      <div class="scn">EHR Management</div>
+      <div class="scd">Data entry, record keeping, and platform management in SimplePractice and ZocDoc. Your client charts stay accurate, current, and compliant at all times.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.15 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.06 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+      <div class="scn">Phone & Email Support</div>
+      <div class="scd">I answer calls, respond to client and insurance inquiries, and manage your inbox — including evening hours. Nothing falls through the cracks.</div>
+    </div>
+
+    <div class="sc">
+      <span class="sci"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></span>
+      <div class="scn">Social Media Management</div>
+      <div class="scd">Instagram and Facebook content creation, scheduling, and engagement — a consistent professional presence for your practice without you lifting a finger.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DIFFERENCE -->
+<section class="diff sec">
+  <div class="dg">
+    <div class="fu">
+      <div class="ey">Why Amy</div>
+      <h2>Not an agency.<br>Not a stranger.<br>Me.</h2>
+      <p class="lead">Every agency assigns you a VA you've never met. With Wallace Admin, you work directly with Amy — one person, every day, who knows your practice inside and out.</p>
+    </div>
+    <div class="dl fu">
+      <div class="di"><div class="dn">01</div><div class="dt"><h4>One person handles everything</h4><p>No handoffs. No "let me check with my team." You contact Amy — Amy handles it. Full stop.</p></div></div>
+      <div class="di"><div class="dn">02</div><div class="dt"><h4>Real therapy practice experience</h4><p>5+ years working inside a real private practice — not a VA training course. She knows the tools, the culture, and what's at stake.</p></div></div>
+      <div class="di"><div class="dn">03</div><div class="dt"><h4>She picks up the phone</h4><p>Real calls, real responses — not automated replies or ticket systems. Your clients get a calm, professional human voice.</p></div></div>
+      <div class="di"><div class="dn">04</div><div class="dt"><h4>HIPAA compliant, always</h4><p>Every communication and record handled in full compliance. Your clients' privacy is treated with the same care you give them in session.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing sec" id="pricing">
+  <div class="ph fu">
+    <div class="ey">Pricing</div>
+    <h2>Simple, flat monthly retainers.</h2>
+    <p class="lead">No hourly guesswork. No surprise invoices. One flat fee, everything included. Any hours beyond your retainer are billed at $35/hr.</p>
+  </div>
+  <div class="pg fu">
+
+    <div class="pc">
+      <div class="pt">Essential</div>
+      <div class="pa">$465</div>
+      <div class="pp">per month</div>
+      <div class="phr">Up to 8 hours &nbsp;·&nbsp; $29/hr base rate</div>
+      <ul class="pf">
+        <li><span class="pck">✦</span>Scheduling & calendar management</li>
+        <li><span class="pck">✦</span>Appointment reminders</li>
+        <li><span class="pck">✦</span>Email triage & response</li>
+        <li><span class="pck">✦</span>2-hour response during business hours</li>
+      </ul>
+      <a href="#contact" class="pbtn">Get started</a>
+    </div>
+
+    <div class="pc ft">
+      <div class="pb">Most popular</div>
+      <div class="pt">Growth</div>
+      <div class="pa">$870</div>
+      <div class="pp">per month</div>
+      <div class="phr">Up to 15 hours &nbsp;·&nbsp; Best value</div>
+      <ul class="pf">
+        <li><span class="pck">✦</span>Everything in Essential</li>
+        <li><span class="pck">✦</span>Client intake & onboarding</li>
+        <li><span class="pck">✦</span>Billing & invoice management</li>
+        <li><span class="pck">✦</span>EHR data entry & management</li>
+        <li><span class="pck">✦</span>Monthly practice summary report</li>
+      </ul>
+      <a href="#contact" class="pbtn">Get started</a>
+    </div>
+
+    <div class="pc">
+      <div class="pt">Full Practice</div>
+      <div class="pa">$1,600</div>
+      <div class="pp">per month</div>
+      <div class="phr">Up to 30 hours &nbsp;·&nbsp; Complete support</div>
+      <ul class="pf">
+        <li><span class="pck">✦</span>Everything in Growth</li>
+        <li><span class="pck">✦</span>Insurance claims & follow-up</li>
+        <li><span class="pck">✦</span>Phone support & call handling</li>
+        <li><span class="pck">✦</span>Social media management</li>
+        <li><span class="pck">✦</span>Priority same-day response</li>
+      </ul>
+      <a href="#contact" class="pbtn">Get started</a>
+    </div>
+
+  </div>
+  <p class="pn fu">All packages include a signed Business Associate Agreement (BAA) and full HIPAA compliance. Overage hours billed at $35/hr. Invoiced on the 1st of each month.</p>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="hiw sec" id="hiw">
+  <div class="hh">
+    <div class="ey fu">How it works</div>
+    <h2 class="fu">Up and running in days,<br>not weeks.</h2>
+    <p class="lead fu">No long agency onboarding. No forms for a week. Just a quick conversation, a simple contract, and Amy getting to work.</p>
+  </div>
+  <div class="hs fu">
+    <div class="hsp">
+      <div class="hsn2">01</div>
+      <div class="hst">Send Amy a message</div>
+      <div class="hsd2">Fill out the contact form below or email wallace.admin@gmail.com directly. Amy responds within 24 hours — usually same day.</div>
+    </div>
+    <div class="hsp">
+      <div class="hsn2">02</div>
+      <div class="hst">15-minute discovery call</div>
+      <div class="hsd2">A quick call to understand your practice, your biggest pain points, your tools, and which package fits your needs and budget.</div>
+    </div>
+    <div class="hsp">
+      <div class="hsn2">03</div>
+      <div class="hst">Contract & BAA signed</div>
+      <div class="hsd2">A simple service agreement and Business Associate Agreement — both signed before anything begins. Clean, clear, and fully HIPAA-compliant.</div>
+    </div>
+    <div class="hsp">
+      <div class="hsn2">04</div>
+      <div class="hst">Amy gets to work</div>
+      <div class="hsd2">Access is shared, systems are set up, and within a few days your admin load starts disappearing. You focus on clients — Amy handles the rest.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<section class="ctab">
+  <div class="ctab-big">Ready to get your time <em>back?</em></div>
+  <p class="ctab-sub">One message is all it takes. Amy responds within 24 hours.</p>
+  <div><a href="mailto:wallace.admin@gmail.com" class="ctab-email">wallace.admin@gmail.com</a></div>
+  <div class="ctab-btns">
+    <a href="#contact" class="btn btn-wh">Send a message</a>
+    <a href="https://linkedin.com/in/amywallaceadmin" target="_blank" class="btn btn-gl">Connect on LinkedIn →</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact sec" id="contact">
+  <div class="cg">
+    <div class="ci fu">
+      <div class="ey">Contact</div>
+      <h2>Let's talk about<br>your practice.</h2>
+      <p class="lead">Whether you're drowning in admin or just curious if this could help — reach out. No pressure, no pitch. Just a conversation.</p>
+      <div class="cd"><div class="cdl">Email</div><div class="cdv"><a href="mailto:wallace.admin@gmail.com">wallace.admin@gmail.com</a></div></div>
+      <div class="cd"><div class="cdl">Location</div><div class="cdv">New Jersey &amp; Nationwide (Remote)</div></div>
+      <div class="cd"><div class="cdl">Response time</div><div class="cdv">Within 24 hours — usually same day</div></div>
+      <div class="cd"><div class="cdl">LinkedIn</div><div class="cdv"><a href="https://linkedin.com/in/amywallaceadmin" target="_blank">linkedin.com/in/amywallaceadmin</a></div></div>
+    </div>
+
+    <div class="cf fu">
+      <form onsubmit="handleSubmit(event)">
+        <div class="fr">
+          <div class="fg"><label class="fl">First name</label><input type="text" name="fn" placeholder="Sarah" required></div>
+          <div class="fg"><label class="fl">Last name</label><input type="text" name="ln" placeholder="Johnson" required></div>
+        </div>
+        <div class="fg"><label class="fl">Email address</label><input type="email" name="em" placeholder="sarah@mypractice.com" required></div>
+        <div class="fg"><label class="fl">Practice location</label><input type="text" name="loc" placeholder="Princeton, NJ"></div>
+        <div class="fg">
+          <label class="fl">Which package interests you?</label>
+          <select name="pkg">
+            <option value="">I'm not sure yet</option>
+            <option value="Essential — $465/mo">Essential — $465/mo (up to 8 hrs)</option>
+            <option value="Growth — $870/mo">Growth — $870/mo (up to 15 hrs)</option>
+            <option value="Full Practice — $1,600/mo">Full Practice — $1,600/mo (up to 30 hrs)</option>
+            <option value="Let's talk — something custom">Let's talk — something custom</option>
+          </select>
+        </div>
+        <div class="fg"><label class="fl">What's your biggest admin challenge?</label><textarea name="msg" placeholder="Tell Amy what's eating up most of your time — billing, scheduling, intake, emails..."></textarea></div>
+        <button type="submit" class="fsub">Send message to Amy →</button>
+        <p class="fn">Your information is handled with complete confidentiality. Amy will respond within 24 hours.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fb">
+    <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="36" cy="36" r="34" fill="#243d5c"/>
+      <circle cx="36" cy="36" r="34" fill="none" stroke="#c4788a" stroke-width="2.5"/>
+      <polyline points="16,22 26,52 36,34 46,52 56,22" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="36" cy="62" r="2.5" fill="#c4788a"/>
+    </svg>
+    <div><div class="fn2">Wallace Admin</div><div class="fs">Your practice, handled.</div></div>
+  </div>
+  <div class="fls">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#hiw">How it works</a>
+    <a href="#contact">Contact</a>
+    <a href="mailto:wallace.admin@gmail.com">wallace.admin@gmail.com</a>
+  </div>
+  <div class="fc">© 2025 Wallace Admin · New Jersey & Nationwide</div>
+</footer>
+
+<script>
+function toggleMenu(){document.getElementById('mob').classList.toggle('open');}
+function cm(){document.getElementById('mob').classList.remove('open');}
+
+const obs=new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target);}});},{threshold:0.08});
+document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
+
+function handleSubmit(e){
+  e.preventDefault();
+  const f=e.target,d=new FormData(f);
+  const name=`${d.get('fn')} ${d.get('ln')}`;
+  const body=`Hi Amy,\n\nMy name is ${name} and I found you through your website.\n\nEmail: ${d.get('em')}\nLocation: ${d.get('loc')||'Not specified'}\nPackage interest: ${d.get('pkg')||'Not sure yet'}\n\nMessage:\n${d.get('msg')||'No message provided'}\n\n— ${name}`;
+  window.location.href=`mailto:wallace.admin@gmail.com?subject=New inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(body)}`;
+}
+</script>
+</body>
+</html>
