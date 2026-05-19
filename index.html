@@ -316,6 +316,154 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
   .btn{padding:12px 20px;}
 }
 
+/* ── MOBILE SCROLL SNAP ── */
+@media(max-width:600px){
+  html{
+    scroll-snap-type:y mandatory;
+    overflow-y:scroll;
+    height:100%;
+  }
+  body{
+    height:100%;
+    overflow-y:scroll;
+    scroll-snap-type:y mandatory;
+  }
+
+  /* Every major section snaps */
+  nav{ z-index:999; }
+
+  .hero,
+  .strip-snap,
+  .about,
+  .services,
+  .diff,
+  .pricing,
+  .hiw,
+  .ctab,
+  .contact,
+  footer{
+    scroll-snap-align:start;
+    scroll-snap-stop:always;
+    min-height:100dvh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+  }
+
+  /* Hero already full height */
+  .hero{
+    min-height:100dvh;
+    padding-top:80px;
+    padding-bottom:40px;
+  }
+
+  /* Strip becomes part of about section on mobile — hide standalone */
+  .strip{
+    scroll-snap-align:none;
+    min-height:unset;
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  /* Sections need to scroll internally if content overflows */
+  .about,
+  .services,
+  .diff,
+  .pricing,
+  .hiw,
+  .contact{
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    padding-top:80px;
+    padding-bottom:40px;
+    box-sizing:border-box;
+  }
+
+  /* Ensure grids don't overflow */
+  .sg{ grid-template-columns:1fr; width:100%; }
+  .hs{ grid-template-columns:1fr; width:100%; }
+  .pg{ grid-template-columns:1fr; max-width:100%; }
+
+  /* CTA section */
+  .ctab{
+    padding-top:60px;
+    padding-bottom:60px;
+  }
+
+  /* Footer */
+  footer{
+    min-height:auto;
+    scroll-snap-align:start;
+    padding:36px 16px;
+    justify-content:center;
+  }
+
+  /* Section indicators — dot nav */
+  .dot-nav{
+    position:fixed;
+    right:12px;
+    top:50%;
+    transform:translateY(-50%);
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    z-index:998;
+  }
+  .dot{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:rgba(196,120,138,0.3);
+    transition:all 0.3s;
+    cursor:pointer;
+  }
+  .dot.active{
+    background:#c4788a;
+    height:16px;
+    border-radius:3px;
+  }
+
+  /* Section title sizing for full-screen */
+  h2{ font-size:clamp(26px,7vw,36px); }
+  .hero h1{ font-size:clamp(38px,11vw,52px); }
+  .ctab-big{ font-size:clamp(28px,9vw,42px); }
+
+  /* Scroll hint arrow on hero */
+  .scroll-hint{
+    position:absolute;
+    bottom:24px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:4px;
+    animation:bounce 2s infinite;
+  }
+  .scroll-hint span{
+    display:block;
+    width:1px;
+    height:20px;
+    background:rgba(196,120,138,0.4);
+  }
+  .scroll-hint::after{
+    content:'';
+    display:block;
+    width:6px;
+    height:6px;
+    border-right:1px solid rgba(196,120,138,0.5);
+    border-bottom:1px solid rgba(196,120,138,0.5);
+    transform:rotate(45deg);
+    margin-top:-10px;
+  }
+  @keyframes bounce{
+    0%,100%{opacity:0.4;transform:translateX(-50%) translateY(0);}
+    50%{opacity:0.8;transform:translateX(-50%) translateY(6px);}
+  }
+}
+
 /* ANIMATIONS */
 .fu{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease;}
 .fu.in{opacity:1;transform:translateY(0);}
@@ -375,6 +523,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
     <div class="hsd"></div>
     <div class="hsn">1:1</div><div class="hsl">Direct service</div>
   </div>
+  <div class="scroll-hint"><span></span></div>
 </section>
 
 <!-- STRIP -->
@@ -466,7 +615,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
 </section>
 
 <!-- DIFFERENCE -->
-<section class="diff sec">
+<section class="diff sec" id="diff-sec">
   <div class="dg">
     <div class="fu">
       <div class="ey">Why Amy</div>
@@ -643,6 +792,17 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
   <div class="fc">© 2025 Wallace Admin · New Jersey & Nationwide</div>
 </footer>
 
+<!-- DOT NAV (mobile only) -->
+<div class="dot-nav" id="dotNav" style="display:none;">
+  <div class="dot active" onclick="scrollToSection('home')" title="Home"></div>
+  <div class="dot" onclick="scrollToSection('about')" title="About"></div>
+  <div class="dot" onclick="scrollToSection('services')" title="Services"></div>
+  <div class="dot" onclick="scrollToSection('diff-sec')" title="Why Amy"></div>
+  <div class="dot" onclick="scrollToSection('pricing')" title="Pricing"></div>
+  <div class="dot" onclick="scrollToSection('hiw')" title="How it works"></div>
+  <div class="dot" onclick="scrollToSection('contact')" title="Contact"></div>
+</div>
+
 <script>
 function toggleMenu(){document.getElementById('mob').classList.toggle('open');}
 function cm(){document.getElementById('mob').classList.remove('open');}
@@ -657,6 +817,42 @@ function handleSubmit(e){
   const body=`Hi Amy,\n\nMy name is ${name} and I found you through your website.\n\nEmail: ${d.get('em')}\nLocation: ${d.get('loc')||'Not specified'}\nPackage interest: ${d.get('pkg')||'Not sure yet'}\n\nMessage:\n${d.get('msg')||'No message provided'}\n\n— ${name}`;
   window.location.href=`mailto:wallace.admin@gmail.com?subject=New inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(body)}`;
 }
+
+// ── DOT NAV & SCROLL SNAP ──
+const sections = ['home','about','services','diff-sec','pricing','hiw','contact'];
+const dots = document.querySelectorAll('.dot');
+const dotNav = document.getElementById('dotNav');
+
+function isMobile(){ return window.innerWidth <= 600; }
+
+function scrollToSection(id){
+  const el = document.getElementById(id);
+  if(el) el.scrollIntoView({behavior:'smooth'});
+}
+
+function updateDots(){
+  if(!isMobile()) return;
+  const scrollY = window.scrollY + window.innerHeight/2;
+  let active = 0;
+  sections.forEach((id,i)=>{
+    const el = document.getElementById(id);
+    if(el && el.offsetTop <= scrollY) active = i;
+  });
+  dots.forEach((d,i)=> d.classList.toggle('active', i===active));
+}
+
+function handleResize(){
+  if(isMobile()){
+    dotNav.style.display='flex';
+  } else {
+    dotNav.style.display='none';
+  }
+}
+
+window.addEventListener('scroll', updateDots, {passive:true});
+window.addEventListener('resize', handleResize);
+handleResize();
+updateDots();
 </script>
 </body>
 </html>
