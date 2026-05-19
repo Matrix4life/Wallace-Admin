@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Wallace Admin | Virtual Admin for Therapists & Private Practices</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -193,21 +193,128 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
 .fc{font-size:11px;color:rgba(255,255,255,0.18);}
 
 /* MOBILE */
+/* ── TABLET ── */
 @media(max-width:900px){
-  nav{padding:0 24px;}
+  nav{padding:0 20px;}
   .nl{display:none;}
   .hbg{display:flex;}
-  .sec,.hero,.ctab,.contact,.hiw,.pricing,.about,.services,.diff{padding:72px 24px;}
-  .strip{padding:18px 24px;gap:18px;}
-  .ag,.sh,.dg,.cg{grid-template-columns:1fr;gap:36px;}
-  .sg,.pg{grid-template-columns:1fr;}
+
+  .sec{padding:64px 24px;}
+  .hero{padding:100px 24px 64px;min-height:auto;}
+  .ctab{padding:72px 24px;}
+  .about,.services,.diff,.pricing,.hiw,.contact{padding:64px 24px;}
+
+  .strip{padding:16px 20px;gap:14px;}
+  .si{font-size:12px;}
+
+  .ag,.sh,.dg,.cg{grid-template-columns:1fr;gap:32px;}
+  .sg{grid-template-columns:1fr 1fr;}
+  .pg{grid-template-columns:1fr;}
   .hs{grid-template-columns:1fr 1fr;}
   .hstats,.hfm{display:none;}
   .fr{grid-template-columns:1fr;}
-  footer{flex-direction:column;text-align:center;}
-  .fls{justify-content:center;}
+
+  /* Hero */
+  .hero h1{font-size:clamp(44px,10vw,64px);}
+  .hd{font-size:15px;max-width:100%;}
+  .btn{padding:13px 26px;font-size:13px;}
+
+  /* About card */
+  .ac{padding:36px 28px;}
+  .aq{font-size:22px;}
+
+  /* Pricing */
+  .pg{max-width:100%;}
+  .pc{padding:32px 24px;}
+
+  /* How it works */
+  .hsp{padding:28px 22px;}
+
+  /* Contact form */
+  .cf{padding:32px 24px;}
+
+  /* CTA */
+  .ctab-big{font-size:clamp(32px,8vw,52px);}
+
+  /* Footer */
+  footer{flex-direction:column;text-align:center;padding:36px 24px;gap:20px;}
+  .fls{justify-content:center;gap:20px;flex-wrap:wrap;}
 }
-@media(max-width:480px){.hs{grid-template-columns:1fr;}}
+
+/* ── MOBILE ── */
+@media(max-width:600px){
+  nav{padding:0 16px;height:60px;}
+  .mob{top:60px;padding:16px;}
+
+  .sec{padding:52px 16px;}
+  .hero{padding:88px 16px 52px;}
+  .ctab{padding:60px 16px;}
+  .about,.services,.diff,.pricing,.hiw,.contact{padding:52px 16px;}
+  .strip{padding:14px 16px;gap:10px;}
+
+  /* Typography */
+  .hero h1{font-size:clamp(38px,11vw,54px);}
+  h2{font-size:clamp(28px,8vw,38px);}
+  .hd{font-size:14px;}
+  .lead{font-size:14px;}
+
+  /* Navigation brand */
+  .nb-name{font-size:16px;}
+  .nb-sub{display:none;}
+
+  /* Strip — stack vertically */
+  .strip{flex-direction:column;align-items:flex-start;gap:8px;}
+  .si{font-size:12px;}
+
+  /* Hero buttons */
+  .hbtns{flex-direction:column;gap:10px;}
+  .hbtns .btn{width:100%;text-align:center;}
+
+  /* Services — single column on mobile */
+  .sg{grid-template-columns:1fr;}
+  .sc{padding:28px 20px;}
+
+  /* How it works — single column */
+  .hs{grid-template-columns:1fr;}
+  .hsp{padding:24px 20px;}
+  .hsn2{font-size:44px;}
+
+  /* Pricing */
+  .pc{padding:28px 20px;}
+  .pa{font-size:44px;}
+
+  /* About */
+  .ac{padding:28px 20px;}
+  .aq{font-size:20px;}
+  .abs{gap:8px;}
+  .ab{padding:10px 12px;font-size:12px;}
+
+  /* Difference */
+  .dg{gap:28px;}
+  .di{padding:20px 0;}
+
+  /* Contact */
+  .cf{padding:24px 16px;}
+  .fr{grid-template-columns:1fr;}
+
+  /* CTA */
+  .ctab-big{font-size:clamp(28px,9vw,44px);}
+  .ctab-email{font-size:18px;}
+  .ctab-btns{flex-direction:column;align-items:center;gap:10px;}
+  .ctab-btns .btn{width:100%;max-width:280px;text-align:center;}
+
+  /* Footer */
+  footer{padding:28px 16px;gap:16px;}
+  .fls{gap:14px;}
+  .fls a{font-size:11px;}
+}
+
+/* ── SMALL MOBILE ── */
+@media(max-width:380px){
+  .hero h1{font-size:36px;}
+  h2{font-size:26px;}
+  .btn{padding:12px 20px;}
+}
 
 /* ANIMATIONS */
 .fu{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease;}
