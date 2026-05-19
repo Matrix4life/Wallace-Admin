@@ -193,6 +193,89 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
 .fc{font-size:11px;color:rgba(255,255,255,0.18);}
 
 /* MOBILE */
+/* ── HERO VISUAL ── */
+.hero{ display:flex; align-items:center; justify-content:space-between; gap:40px; }
+.hi{ max-width:520px; flex-shrink:0; }
+
+.hero-stats-row{
+  display:flex; align-items:center; gap:24px; margin-top:48px;
+  padding-top:32px; border-top:1px solid rgba(255,255,255,0.08);
+}
+.hsr-item{ text-align:left; }
+.hsr-num{ font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:700; color:var(--white); line-height:1; }
+.hsr-lbl{ font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--rose); margin-top:3px; }
+.hsr-div{ width:1px; height:36px; background:rgba(196,120,138,0.2); }
+
+.hero-visual{
+  flex:1; max-width:520px; min-height:480px;
+  position:relative; display:flex; align-items:center; justify-content:center;
+}
+
+.hv-bg-ring{
+  position:absolute; border-radius:50%; border:1px solid rgba(196,120,138,0.1);
+  animation:slowspin 20s linear infinite;
+}
+.hv-ring1{ width:400px; height:400px; }
+.hv-ring2{ width:300px; height:300px; animation-direction:reverse; animation-duration:15s; border-color:rgba(196,120,138,0.15); }
+@keyframes slowspin{ from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+
+.hv-center-mark{
+  position:absolute; z-index:2;
+  animation:pulse 3s ease-in-out infinite;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1); opacity:0.8;}
+  50%{transform:scale(1.05); opacity:1;}
+}
+
+.task-cards{ position:relative; width:320px; height:400px; z-index:3; }
+
+.tc{
+  position:absolute;
+  background:rgba(255,255,255,0.07);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:10px;
+  padding:12px 16px;
+  display:flex; align-items:center; gap:10px;
+  font-size:13px; color:rgba(255,255,255,0.9);
+  white-space:nowrap;
+  opacity:0;
+  transform:translateX(20px);
+  transition:opacity 0.5s ease, transform 0.5s ease;
+  box-shadow:0 4px 24px rgba(0,0,0,0.15);
+  min-width:200px;
+}
+.tc.visible{ opacity:1; transform:translateX(0); }
+.tc.done{ background:rgba(196,120,138,0.12); border-color:rgba(196,120,138,0.25); }
+.tc-icon{ font-size:16px; flex-shrink:0; }
+.tc-text{ flex:1; }
+.tc-check{
+  color:#4ecfa0; font-size:14px; font-weight:bold;
+  opacity:0; transform:scale(0);
+  transition:opacity 0.3s ease, transform 0.3s ease;
+}
+.tc.done .tc-check{ opacity:1; transform:scale(1); }
+
+/* Card positions */
+.tc1{ top:0; left:0; }
+.tc2{ top:52px; right:0; }
+.tc3{ top:108px; left:20px; }
+.tc4{ top:164px; right:10px; }
+.tc5{ top:220px; left:0; }
+.tc6{ top:276px; right:0; }
+.tc7{ top:332px; left:20px; }
+.tc8{ top:388px; right:10px; display:none; }
+
+.hv-label{
+  position:absolute; bottom:-48px; left:50%; transform:translateX(-50%);
+  font-size:12px; color:rgba(255,255,255,0.3); text-align:center; white-space:nowrap;
+  line-height:1.6;
+}
+.hv-label span{ color:rgba(196,120,138,0.5); }
+
+/* ── HERO VISUAL ── */
+
 /* ── TABLET ── */
 @media(max-width:900px){
   nav{padding:0 20px;}
@@ -215,9 +298,14 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
   .fr{grid-template-columns:1fr;}
 
   /* Hero */
+  .hero{flex-direction:column; justify-content:center; align-items:flex-start; gap:24px;}
   .hero h1{font-size:clamp(44px,10vw,64px);}
   .hd{font-size:15px;max-width:100%;}
   .btn{padding:13px 26px;font-size:13px;}
+  .hero-visual{display:none;}
+  .hero-stats-row{margin-top:32px; padding-top:24px;}
+  .hsr-num{font-size:26px;}
+  .hsr-div{height:28px;}
 
   /* About card */
   .ac{padding:36px 28px;}
@@ -502,11 +590,6 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <svg class="hfm" width="460" height="460" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="36" cy="36" r="34" fill="none" stroke="#c4788a" stroke-width="0.8"/>
-    <polyline points="16,22 26,52 36,34 46,52 56,22" fill="none" stroke="#c4788a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <circle cx="36" cy="62" r="1.5" fill="#c4788a"/>
-  </svg>
   <div class="hi">
     <div class="htag">Virtual Admin for Therapists & Private Practices</div>
     <h1>Your practice,<br><em>handled.</em></h1>
@@ -515,14 +598,40 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
       <a href="#contact" class="btn btn-rose">Get started today</a>
       <a href="#about" class="btn btn-outline">Learn more →</a>
     </div>
+    <div class="hero-stats-row">
+      <div class="hsr-item"><div class="hsr-num">5+</div><div class="hsr-lbl">Years experience</div></div>
+      <div class="hsr-div"></div>
+      <div class="hsr-item"><div class="hsr-num">NJ</div><div class="hsr-lbl">& Nationwide</div></div>
+      <div class="hsr-div"></div>
+      <div class="hsr-item"><div class="hsr-num">1:1</div><div class="hsr-lbl">Direct service</div></div>
+    </div>
   </div>
-  <div class="hstats">
-    <div class="hsn">5+</div><div class="hsl">Years experience</div>
-    <div class="hsd"></div>
-    <div class="hsn">NJ</div><div class="hsl">& Nationwide</div>
-    <div class="hsd"></div>
-    <div class="hsn">1:1</div><div class="hsl">Direct service</div>
+
+  <!-- ANIMATED TASK CARDS -->
+  <div class="hero-visual" aria-hidden="true">
+    <div class="hv-bg-ring hv-ring1"></div>
+    <div class="hv-bg-ring hv-ring2"></div>
+    <div class="hv-center-mark">
+      <svg width="80" height="80" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="36" cy="36" r="34" fill="rgba(196,120,138,0.12)"/>
+        <circle cx="36" cy="36" r="34" fill="none" stroke="rgba(196,120,138,0.4)" stroke-width="1.5"/>
+        <polyline points="16,22 26,52 36,34 46,52 56,22" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="36" cy="62" r="2" fill="#c4788a"/>
+      </svg>
+    </div>
+    <div class="task-cards" id="taskCards">
+      <div class="tc tc1"><span class="tc-icon">📅</span><span class="tc-text">Appointment scheduled</span><span class="tc-check">✓</span></div>
+      <div class="tc tc2"><span class="tc-icon">📋</span><span class="tc-text">Intake form sent</span><span class="tc-check">✓</span></div>
+      <div class="tc tc3"><span class="tc-icon">💳</span><span class="tc-text">Invoice submitted</span><span class="tc-check">✓</span></div>
+      <div class="tc tc4"><span class="tc-icon">📞</span><span class="tc-text">New client call answered</span><span class="tc-check">✓</span></div>
+      <div class="tc tc5"><span class="tc-icon">🏥</span><span class="tc-text">Insurance claim filed</span><span class="tc-check">✓</span></div>
+      <div class="tc tc6"><span class="tc-icon">📱</span><span class="tc-text">Instagram post scheduled</span><span class="tc-check">✓</span></div>
+      <div class="tc tc7"><span class="tc-icon">📧</span><span class="tc-text">Inbox cleared</span><span class="tc-check">✓</span></div>
+      <div class="tc tc8"><span class="tc-icon">🗂</span><span class="tc-text">EHR records updated</span><span class="tc-check">✓</span></div>
+    </div>
+    <div class="hv-label">Everything Amy handles<br><span>while you focus on your clients</span></div>
   </div>
+
   <div class="scroll-hint"><span></span></div>
 </section>
 
@@ -817,6 +926,31 @@ function handleSubmit(e){
   const body=`Hi Amy,\n\nMy name is ${name} and I found you through your website.\n\nEmail: ${d.get('em')}\nLocation: ${d.get('loc')||'Not specified'}\nPackage interest: ${d.get('pkg')||'Not sure yet'}\n\nMessage:\n${d.get('msg')||'No message provided'}\n\n— ${name}`;
   window.location.href=`mailto:wallace.admin@gmail.com?subject=New inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(body)}`;
 }
+
+// ── TASK CARD ANIMATION ──
+(function(){
+  const tasks = document.querySelectorAll('.tc');
+  const delays = [0, 600, 1200, 1800, 2400, 3000, 3600, 4200];
+  const cycleDuration = 5000;
+
+  function animateCard(card, delay){
+    setTimeout(()=>{
+      card.classList.add('visible');
+      setTimeout(()=>{ card.classList.add('done'); }, 600);
+    }, delay);
+  }
+
+  function runCycle(){
+    tasks.forEach(c=>{ c.classList.remove('visible','done'); });
+    tasks.forEach((card,i)=>{ animateCard(card, delays[i]||i*600); });
+  }
+
+  // Start after a short delay
+  setTimeout(()=>{
+    runCycle();
+    setInterval(runCycle, 6000);
+  }, 800);
+})();
 
 // ── DOT NAV & SCROLL SNAP ──
 const sections = ['home','about','services','diff-sec','pricing','hiw','contact'];
