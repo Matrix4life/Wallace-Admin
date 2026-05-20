@@ -144,6 +144,16 @@ h2{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,3.5vw,52px);font-
 .apt{margin-top:32px;display:flex;flex-direction:column;gap:14px;}
 .ap{display:flex;align-items:flex-start;gap:12px;font-size:14px;color:var(--navy);line-height:1.65;}
 .ap::before{content:'✦';color:var(--rose);font-size:10px;margin-top:3px;flex-shrink:0;}
+.about-mission{
+  margin:28px 0;padding:20px 24px;
+  border-left:3px solid var(--rose);
+  background:var(--blush);border-radius:0 6px 6px 0;
+}
+.about-mission span{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-style:italic;font-weight:600;
+  color:var(--navy);line-height:1.5;
+}
 .ac{background:var(--navy);border-radius:4px;padding:52px 44px;position:relative;overflow:hidden;}
 .ac::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--rose);}
 .ac::after{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(196,120,138,0.1) 0%,transparent 70%);bottom:-60px;right:-60px;pointer-events:none;}
@@ -270,6 +280,20 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
 .hero{ display:flex; align-items:center; justify-content:space-between; gap:40px; }
 .hi{ max-width:520px; flex-shrink:0; }
 
+.hero-mission{
+  display:flex;align-items:flex-start;gap:14px;
+  margin-bottom:36px;max-width:560px;
+}
+.hm-line{
+  width:3px;min-height:100%;background:var(--rose);
+  border-radius:2px;flex-shrink:0;opacity:0.7;align-self:stretch;
+}
+.hm-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:17px;font-style:italic;font-weight:600;
+  color:rgba(255,255,255,0.7);line-height:1.65;
+}
+
 .hero-stats-row{
   display:flex; align-items:center; gap:24px; margin-top:48px;
   padding-top:32px; border-top:1px solid rgba(255,255,255,0.08);
@@ -379,7 +403,21 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
   .hd{font-size:15px;max-width:100%;}
   .btn{padding:13px 26px;font-size:13px;}
   .hero-visual{display:none;}
-  .hero-stats-row{margin-top:32px; padding-top:24px;}
+  .hero-mission{
+  display:flex;align-items:flex-start;gap:14px;
+  margin-bottom:36px;max-width:560px;
+}
+.hm-line{
+  width:3px;min-height:100%;background:var(--rose);
+  border-radius:2px;flex-shrink:0;opacity:0.7;align-self:stretch;
+}
+.hm-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:17px;font-style:italic;font-weight:600;
+  color:rgba(255,255,255,0.7);line-height:1.65;
+}
+
+.hero-stats-row{margin-top:32px; padding-top:24px;}
   .hsr-num{font-size:26px;}
   .hsr-div{height:28px;}
 
@@ -669,15 +707,18 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
   <div class="hi">
     <div class="htag">Virtual Admin for Therapists & Private Practices</div>
     <h1>Your practice,<br><em>handled.</em></h1>
-    <p class="hd">I take the admin off your plate — scheduling, billing, intake, EHR, phone calls, and social media — so you can stay focused on your clients.</p>
+    <div class="hero-mission">
+      <div class="hm-line"></div>
+      <p class="hm-text">"To give therapists back the time and energy they trained so hard to protect — by handling every part of running their practice that has nothing to do with healing people."</p>
+    </div>
     <div class="hbtns">
       <a href="#contact" class="btn btn-rose">Get started today</a>
       <a href="#about" class="btn btn-outline">Learn more →</a>
     </div>
     <div class="hero-stats-row">
-      <div class="hsr-item"><div class="hsr-num">5+</div><div class="hsr-lbl">Years experience</div></div>
+      <div class="hsr-item"><div class="hsr-num" style="font-size:16px;letter-spacing:0.02em;">Therapy Admin</div><div class="hsr-lbl">Experience</div></div>
       <div class="hsr-div"></div>
-      <div class="hsr-item"><div class="hsr-num">NJ</div><div class="hsr-lbl">& Nationwide</div></div>
+      <div class="hsr-item"><div class="hsr-num">Remote</div><div class="hsr-lbl">Nationwide</div></div>
       <div class="hsr-div"></div>
       <div class="hsr-item"><div class="hsr-num">1:1</div><div class="hsr-lbl">Direct service</div></div>
     </div>
@@ -727,11 +768,15 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
     <div class="fu">
       <div class="ey">About Amy</div>
       <h2>The admin side,<br>from the inside.</h2>
-      <p class="lead">I'm Amy Wallace — a virtual admin specialist with 5+ years of hands-on experience working inside a real private therapy practice. I know this world from the inside: the intake paperwork, the insurance headaches, the no-show follow-ups, the EHR quirks, and the scheduling gaps that cost therapists real time and real money.</p>
+      <p class="lead">Wallace Admin exists because therapists are burning out — not from the emotional weight of their work, but from the administrative weight nobody prepared them for. Scheduling, billing, intake, insurance, emails, EHR management, social media — none of it is why they went to school, and all of it is pulling them away from the clients who need them.</p>
+      <p class="lead" style="margin-top:16px;">Amy built Wallace Admin to be the one person standing between a therapist and that pile. Not an agency. Not a stranger assigned to their account. Just Amy — someone who knows this world from the inside, picks up the phone, handles everything, and shows up every single day so therapists can do what they actually trained to do.</p>
+      <div class="about-mission">
+        <span>"A therapist should never have to choose between their clients and their paperwork."</span>
+      </div>
       <div class="apt">
         <div class="ap">Not a general VA — real hands-on experience inside a working therapy practice from day one.</div>
         <div class="ap">You get me directly, every call, every email, every day. No agency. No handoffs. No strangers.</div>
-        <div class="ap">Available morning and evening — because therapists don't stop at 5pm, and neither do I.</div>
+        <div class="ap">Available 8am–2pm and 7pm–10pm — because therapists don't stop at 5pm, and neither do I.</div>
         <div class="ap">Fully HIPAA-compliant across every communication, record, and platform I touch.</div>
       </div>
     </div>
@@ -739,7 +784,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
       <div class="aq">"Therapists are exceptional at what they do. Running a practice shouldn't get in the way of that."</div>
       <div class="aa">— Amy Wallace, Wallace Admin</div>
       <div class="abs">
-        <div class="ab"><span class="abi">✦</span>5+ years inside a private therapy practice</div>
+        <div class="ab"><span class="abi">✦</span>years inside a private therapy practice</div>
         <div class="ab"><span class="abi">✦</span>Fluent in SimplePractice, ZocDoc & Headway</div>
         <div class="ab"><span class="abi">✦</span>BAA signed before anything begins</div>
         <div class="ab"><span class="abi">✦</span>New Jersey & nationwide remote</div>
@@ -810,7 +855,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
     </div>
     <div class="dl fu">
       <div class="di"><div class="dn">01</div><div class="dt"><h4>One person handles everything</h4><p>No handoffs. No "let me check with my team." You contact Amy — Amy handles it. Full stop.</p></div></div>
-      <div class="di"><div class="dn">02</div><div class="dt"><h4>Real therapy practice experience</h4><p>5+ years working inside a real private practice — not a VA training course. She knows the tools, the culture, and what's at stake.</p></div></div>
+      <div class="di"><div class="dn">02</div><div class="dt"><h4>Real therapy practice experience</h4><p>years of experience working inside a real private practice — not a VA training course. She knows the tools, the culture, and what's at stake.</p></div></div>
       <div class="di"><div class="dn">03</div><div class="dt"><h4>She picks up the phone</h4><p>Real calls, real responses — not automated replies or ticket systems. Your clients get a calm, professional human voice.</p></div></div>
       <div class="di"><div class="dn">04</div><div class="dt"><h4>HIPAA compliant, always</h4><p>Every communication and record handled in full compliance. Your clients' privacy is treated with the same care you give them in session.</p></div></div>
     </div>
