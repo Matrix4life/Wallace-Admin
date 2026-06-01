@@ -78,7 +78,7 @@
     "Social Media Management for Therapists"
   ],
   "priceRange": "$29-$1600",
-  "openingHours": ["Mo-Fr 08:00-14:00", "Mo-Fr 19:00-22:00"],
+  "openingHours": ["Mo-Fr 08:00-22:00"],
   "knowsAbout": ["SimplePractice", "ZocDoc", "Headway", "HIPAA Compliance", "Medical Billing", "Therapy Practice Management"]
 }
 </script>
@@ -238,6 +238,17 @@ h2{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,3.5vw,52px);font-
 .hst{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--navy);margin-bottom:10px;}
 .hsd2{font-size:13px;color:var(--slate);line-height:1.7;font-weight:300;}
 
+/* FAQ */
+.faq{background:var(--white);}
+.faq-inner{max-width:860px;margin:0 auto;}
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--blush2);border:2px solid var(--blush2);border-radius:4px;overflow:hidden;}
+.faq-item{background:var(--white);padding:32px 28px;transition:background 0.2s;}
+.faq-item:hover{background:var(--blush);}
+.faq-q{font-family:"Cormorant Garamond",serif;font-size:18px;font-weight:600;color:var(--navy);margin-bottom:10px;line-height:1.3;}
+.faq-q::before{content:"✦ ";color:var(--rose);font-size:12px;}
+.faq-a{font-size:13px;color:var(--slate);line-height:1.75;font-weight:300;}
+@media(max-width:700px){.faq-grid{grid-template-columns:1fr;}}
+
 /* CTA BANNER */
 .ctab{background:var(--navy);padding:108px 48px;text-align:center;position:relative;overflow:hidden;}
 .ctab::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(196,120,138,0.1) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;}
@@ -272,6 +283,7 @@ textarea{resize:vertical;min-height:110px;line-height:1.6;}
 .fsub{width:100%;padding:14px;background:var(--navy);color:var(--white);border:none;border-radius:3px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:0.06em;cursor:pointer;transition:background 0.2s;margin-top:4px;}
 .fsub:hover{background:var(--rose);}
 .fn{font-size:11px;color:var(--slate);text-align:center;margin-top:12px;line-height:1.6;}
+[data-fs-submit-btn]:disabled{opacity:0.6;cursor:not-allowed;}
 
 /* FOOTER */
 footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:44px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;}
@@ -697,6 +709,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
     <li><a href="#services">Services</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#hiw">How it works</a></li>
+    <li><a href="#faq">FAQ</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#contact" class="cta">Get started</a></li>
   </ul>
@@ -785,7 +798,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
       <div class="apt">
         <div class="ap">Not a general VA — real hands-on experience inside a working therapy practice from day one.</div>
         <div class="ap">You get me directly, every call, every email, every day. No agency. No handoffs. No strangers.</div>
-        <div class="ap">Available 8am–2pm and 7pm–10pm — because therapists don't stop at 5pm, and neither do I.</div>
+        <div class="ap">Flexible availability from morning through evening — because therapist practices don't run on a standard business day.</div>
         <div class="ap">Fully HIPAA-compliant across every communication, record, and platform I touch.</div>
       </div>
     </div>
@@ -963,6 +976,36 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
   </div>
 </section>
 
+<!-- FAQ -->
+<section class="faq sec" id="faq">
+  <div class="faq-inner">
+    <div class="fu" style="text-align:center;margin-bottom:52px;">
+      <div class="ey" style="justify-content:center;">FAQ</div>
+      <h2>Common questions<br>about working with Amy.</h2>
+      <p class="lead" style="margin:0 auto;text-align:center;">Everything therapists ask before getting started.</p>
+    </div>
+    <div class="faq-grid fu">
+
+      <div class="faq-item"><div class="faq-q">Is Wallace Admin HIPAA compliant?</div><div class="faq-a">Yes. Amy signs a Business Associate Agreement (BAA) before any work begins, and every communication, record, and platform she touches is handled in full HIPAA compliance. Your clients's protected health information is treated with the same care you give them in session.</div></div>
+
+      <div class="faq-item"><div class="faq-q">What's the difference between Wallace Admin and a general virtual assistant?</div><div class="faq-a">A general VA has no experience in the mental health space. Amy has hands-on experience working inside a real private therapy practice — she knows SimplePractice, ZocDoc, and Headway, understands the culture, and knows what's at stake when something falls through the cracks. You won't spend weeks training her.</div></div>
+
+      <div class="faq-item"><div class="faq-q">Does Amy handle clinical documentation like progress notes or treatment plans?</div><div class="faq-a">No — and that boundary is intentional. Amy handles non-clinical administrative tasks only: scheduling, billing, intake forms, insurance claims, EHR data entry, emails, phone calls, and social media. Clinical documentation requires a licensed clinician and stays entirely with you.</div></div>
+
+      <div class="faq-item"><div class="faq-q">Is there a minimum contract or commitment?</div><div class="faq-a">No minimum commitment. There's no long-term contract required — you're not locked in. Most therapists stick around because the support genuinely changes how their practice runs, not because they have to.</div></div>
+
+      <div class="faq-item"><div class="faq-q">How quickly can I get started?</div><div class="faq-a">Most practices are up and running within a week. After a 15-minute discovery call and a signed service agreement and BAA, Amy gets access to your systems and starts handling your admin load within days — not weeks.</div></div>
+
+      <div class="faq-item"><div class="faq-q">Do you work with solo practices and group practices?</div><div class="faq-a">Both. Whether you're a solo therapist managing everything yourself or a group practice with multiple providers, Amy scales to fit. The right package depends on your volume — reach out and she'll recommend what makes sense.</div></div>
+
+      <div class="faq-item"><div class="faq-q">What platforms does Amy work in?</div><div class="faq-a">Amy is fluent in SimplePractice, ZocDoc, and Headway — the most widely used platforms in private practice. If your practice uses a different EHR or scheduling tool, reach out and Amy can discuss whether it's a fit.</div></div>
+
+      <div class="faq-item"><div class="faq-q">What if I need more hours than my retainer includes?</div><div class="faq-a">Any hours beyond your monthly retainer are billed at $35/hr, invoiced on the 1st of the following month. There are no surprise charges — Amy will flag it if you're approaching your limit so you can decide how to proceed.</div></div>
+
+    </div>
+  </div>
+</section>
+
 <!-- CTA BANNER -->
 <section class="ctab">
   <div class="ctab-big">Ready to get your time <em>back?</em></div>
@@ -988,16 +1031,22 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
     </div>
 
     <div class="cf fu">
-      <form onsubmit="handleSubmit(event)">
+      <div data-fs-success style="display:none;padding:32px;text-align:center;">
+        <div style="font-size:32px;margin-bottom:12px;">✦</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--navy);margin-bottom:8px;">Message sent to Amy.</div>
+        <div style="font-size:14px;color:var(--slate);line-height:1.7;">She'll be in touch within 24 hours — usually the same day.</div>
+      </div>
+      <div data-fs-error style="display:none;padding:12px 16px;background:#fff0f0;border-left:3px solid #c0392b;border-radius:3px;font-size:13px;color:#c0392b;margin-bottom:16px;"></div>
+      <form id="contact-form">
         <div class="fr">
-          <div class="fg"><label class="fl">First name</label><input type="text" name="fn" placeholder="Sarah" required></div>
-          <div class="fg"><label class="fl">Last name</label><input type="text" name="ln" placeholder="Johnson" required></div>
+          <div class="fg"><label class="fl">First name</label><input type="text" name="first_name" placeholder="Sarah" required data-fs-field></div>
+          <div class="fg"><label class="fl">Last name</label><input type="text" name="last_name" placeholder="Johnson" required data-fs-field></div>
         </div>
-        <div class="fg"><label class="fl">Email address</label><input type="email" name="em" placeholder="sarah@mypractice.com" required></div>
-        <div class="fg"><label class="fl">Practice location</label><input type="text" name="loc" placeholder="Princeton, NJ"></div>
+        <div class="fg"><label class="fl">Email address</label><input type="email" name="email" placeholder="sarah@mypractice.com" required data-fs-field><span data-fs-error="email" style="font-size:12px;color:#c0392b;margin-top:4px;display:block;"></span></div>
+        <div class="fg"><label class="fl">Practice location</label><input type="text" name="practice_location" placeholder="Princeton, NJ"></div>
         <div class="fg">
           <label class="fl">Which package interests you?</label>
-          <select name="pkg">
+          <select name="package_interest">
             <option value="">I'm not sure yet</option>
             <option value="Essential — $465/mo">Essential — $465/mo (up to 8 hrs)</option>
             <option value="Growth — $870/mo">Growth — $870/mo (up to 15 hrs)</option>
@@ -1005,8 +1054,8 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);paddin
             <option value="Let's talk — something custom">Let's talk — something custom</option>
           </select>
         </div>
-        <div class="fg"><label class="fl">What's your biggest admin challenge?</label><textarea name="msg" placeholder="Tell Amy what's eating up most of your time — billing, scheduling, intake, emails..."></textarea></div>
-        <button type="submit" class="fsub">Send message to Amy →</button>
+        <div class="fg"><label class="fl">What's your biggest admin challenge?</label><textarea name="message" placeholder="Tell Amy what's eating up most of your time — billing, scheduling, intake, emails..." data-fs-field></textarea></div>
+        <button type="submit" class="fsub" data-fs-submit-btn>Send message to Amy →</button>
         <p class="fn">Your information is handled with complete confidentiality. Amy will respond within 24 hours.</p>
       </form>
     </div>
@@ -1064,13 +1113,7 @@ function cm(){
 const obs=new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target);}});},{threshold:0.08});
 document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
 
-function handleSubmit(e){
-  e.preventDefault();
-  const f=e.target,d=new FormData(f);
-  const name=`${d.get('fn')} ${d.get('ln')}`;
-  const body=`Hi Amy,\n\nMy name is ${name} and I found you through your website.\n\nEmail: ${d.get('em')}\nLocation: ${d.get('loc')||'Not specified'}\nPackage interest: ${d.get('pkg')||'Not sure yet'}\n\nMessage:\n${d.get('msg')||'No message provided'}\n\n— ${name}`;
-  window.location.href=`mailto:wallace.admin@gmail.com?subject=New inquiry from ${encodeURIComponent(name)}&body=${encodeURIComponent(body)}`;
-}
+
 
 // ── TASK CARD ANIMATION ──
 (function(){
@@ -1132,6 +1175,11 @@ window.addEventListener('scroll', updateDots, {passive:true});
 window.addEventListener('resize', handleResize);
 handleResize();
 updateDots();
+
+// ── FORMSPREE ──
+window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+formspree('initForm', { formElement: '#contact-form', formId: 'mykvqlbp' });
 </script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
