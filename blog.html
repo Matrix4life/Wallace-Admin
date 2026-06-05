@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F96G2PEZ6R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-F96G2PEZ6R');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>Resources & Blog | Wallace Admin | Virtual Admin for Therapists</title>
+  <meta name="description" content="Practical guides and insights for therapists running private practices. HIPAA compliance, billing, scheduling, EHR management, and when to hire a virtual admin.">
+  <meta name="author" content="Amy Wallace, Wallace Admin">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.wallaceadmin.com/blog.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.wallaceadmin.com/blog.html">
+  <meta property="og:title" content="Resources & Blog | Wallace Admin">
+  <meta property="og:description" content="Practical guides for therapists on running a private practice — billing, scheduling, HIPAA, EHR, and virtual admin support.">
+  <meta property="og:image" content="https://www.wallaceadmin.com/og-image.png">
+  <meta property="og:site_name" content="Wallace Admin">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Wallace Admin Resources",
+    "description": "Practical guides and insights for therapists running private practices.",
+    "url": "https://www.wallaceadmin.com/blog.html",
+    "author": {
+      "@type": "Person",
+      "name": "Amy Wallace",
+      "jobTitle": "Mental Health Practice Administrator"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Wallace Admin",
+      "url": "https://www.wallaceadmin.com/"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy:#1c2f4a; --navy2:#243d5c; --rose:#c4788a; --rose2:#d4899a;
+      --blush:#f7eef1; --blush2:#eddde3; --slate:#6a7a8a; --white:#fff; --off:#fdf9fa;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'DM Sans',sans-serif;background:var(--off);color:var(--navy);overflow-x:hidden;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(253,249,250,0.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(196,120,138,0.12);padding:0 48px;height:68px;display:flex;align-items:center;justify-content:space-between;}
+    .nb{display:flex;align-items:center;gap:12px;text-decoration:none;}
+    .nb svg{width:38px;height:38px;}
+    .nb-name{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:var(--navy);white-space:nowrap;}
+    .nb-sub{font-size:9px;letter-spacing:0.16em;color:var(--rose);text-transform:uppercase;margin-top:1px;white-space:nowrap;}
+    .nl{display:flex;align-items:center;gap:30px;list-style:none;}
+    .nl a{font-size:13px;color:var(--navy);text-decoration:none;opacity:0.65;transition:opacity 0.2s;}
+    .nl a:hover{opacity:1;}
+    .nl .cta{background:var(--navy);color:var(--white)!important;opacity:1!important;padding:9px 20px;border-radius:3px;font-size:12px;letter-spacing:0.05em;transition:background 0.2s!important;}
+    .nl .cta:hover{background:var(--rose)!important;}
+    .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;}
+    .hbg span{display:block;width:22px;height:1.5px;background:var(--navy);}
+    .mob{display:none;position:fixed;top:60px;left:0;right:0;background:var(--white);border-bottom:1px solid var(--blush2);padding:12px 20px;flex-direction:column;gap:0;z-index:998;box-shadow:0 8px 24px rgba(0,0,0,0.08);}
+    .mob.open{display:flex;}
+    .mob a{font-size:14px;color:var(--navy);text-decoration:none;opacity:0.75;padding:12px 0;border-bottom:0.5px solid var(--blush2);}
+    .mob a:last-child{border-bottom:none;color:var(--rose);font-weight:500;opacity:1;}
+
+    /* PAGE HEADER */
+    .page-header{background:var(--navy);padding:140px 48px 80px;position:relative;overflow:hidden;}
+    .page-header::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(196,120,138,0.1) 0%,transparent 70%);top:-100px;right:-60px;pointer-events:none;}
+    .ph-inner{max-width:680px;position:relative;z-index:2;}
+    .ph-tag{font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--rose);margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+    .ph-tag::before{content:'';display:block;width:36px;height:1px;background:var(--rose);opacity:0.5;}
+    .page-header h1{font-family:'Cormorant Garamond',serif;font-size:clamp(42px,5vw,64px);font-weight:700;line-height:1.08;color:var(--white);letter-spacing:-0.02em;margin-bottom:18px;}
+    .page-header h1 em{color:var(--rose);font-style:italic;}
+    .ph-lead{font-size:16px;color:rgba(255,255,255,0.45);line-height:1.75;font-weight:300;max-width:480px;}
+
+    /* BLOG MAIN */
+    .blog-main{padding:80px 48px;max-width:1200px;margin:0 auto;}
+
+    /* FEATURED POST */
+    .featured-label{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);display:flex;align-items:center;gap:10px;margin-bottom:24px;}
+    .featured-label::before{content:'';display:block;width:28px;height:1px;background:var(--rose);opacity:0.5;}
+    .featured{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--blush2);border:2px solid var(--blush2);border-radius:4px;overflow:hidden;margin-bottom:64px;}
+    .featured-content{background:var(--white);padding:52px 48px;display:flex;flex-direction:column;justify-content:space-between;}
+    .featured-visual{background:var(--navy);padding:52px 48px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;}
+    .featured-visual::before{content:'';position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(196,120,138,0.15) 0%,transparent 70%);bottom:-60px;right:-60px;}
+    .post-cat{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--rose);margin-bottom:16px;}
+    .featured-content .post-cat{color:var(--rose);}
+    .featured-visual .post-cat{color:var(--rose2);}
+    .post-title{font-family:'Cormorant Garamond',serif;font-size:clamp(24px,2.5vw,34px);font-weight:700;line-height:1.15;color:var(--navy);margin-bottom:16px;letter-spacing:-0.01em;}
+    .featured-visual .post-title{color:var(--white);}
+    .post-excerpt{font-size:14px;color:var(--slate);line-height:1.75;font-weight:300;margin-bottom:28px;}
+    .featured-visual .post-excerpt{color:rgba(255,255,255,0.45);}
+    .post-meta{font-size:11px;color:var(--slate);letter-spacing:0.08em;margin-bottom:20px;}
+    .featured-visual .post-meta{color:rgba(255,255,255,0.3);}
+    .post-link{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:0.08em;color:var(--navy);text-decoration:none;border-bottom:1px solid var(--blush2);padding-bottom:2px;transition:border-color 0.2s,color 0.2s;}
+    .post-link:hover{color:var(--rose);border-color:var(--rose);}
+    .featured-visual .post-link{color:var(--rose);border-color:rgba(196,120,138,0.3);}
+    .featured-visual .post-link:hover{border-color:var(--rose);}
+    .coming-soon-badge{display:inline-block;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;background:rgba(196,120,138,0.15);color:var(--rose);padding:4px 10px;border-radius:2px;border:1px solid rgba(196,120,138,0.25);margin-bottom:16px;}
+    .featured-visual .coming-soon-badge{background:rgba(196,120,138,0.2);border-color:rgba(196,120,138,0.3);}
+
+    /* QUOTE PULL */
+    .fv-quote{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;font-weight:600;color:rgba(255,255,255,0.7);line-height:1.5;position:relative;z-index:1;}
+    .fv-quote::before{content:'"';font-size:80px;color:rgba(196,120,138,0.15);position:absolute;top:-20px;left:-10px;font-style:normal;line-height:1;}
+
+    /* POST GRID */
+    .grid-label{font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--rose);display:flex;align-items:center;gap:10px;margin-bottom:24px;}
+    .grid-label::before{content:'';display:block;width:28px;height:1px;background:var(--rose);opacity:0.5;}
+    .post-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--blush2);border:2px solid var(--blush2);border-radius:4px;overflow:hidden;margin-bottom:64px;}
+    .post-card{background:var(--white);padding:36px 28px;display:flex;flex-direction:column;justify-content:space-between;transition:background 0.2s;}
+    .post-card:hover{background:var(--blush);}
+    .post-card .post-title{font-size:20px;margin-bottom:12px;}
+    .post-card .post-excerpt{font-size:13px;margin-bottom:20px;flex:1;}
+    .post-num{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:700;color:var(--rose);opacity:0.12;line-height:1;margin-bottom:16px;}
+
+    /* CTA STRIP */
+    .blog-cta{background:var(--navy);border-radius:4px;padding:52px 48px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;position:relative;overflow:hidden;}
+    .blog-cta::before{content:'';position:absolute;top:0;left:0;width:4px;height:100%;background:var(--rose);}
+    .blog-cta::after{content:'';position:absolute;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,rgba(196,120,138,0.1) 0%,transparent 70%);bottom:-60px;right:-40px;pointer-events:none;}
+    .blog-cta h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:var(--white);line-height:1.2;margin-bottom:8px;}
+    .blog-cta p{font-size:14px;color:rgba(255,255,255,0.4);font-weight:300;line-height:1.6;}
+    .btn{display:inline-block;text-decoration:none;padding:14px 32px;border-radius:3px;font-size:13px;font-weight:500;letter-spacing:0.05em;transition:all 0.2s;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;white-space:nowrap;}
+    .btn-rose{background:var(--rose);color:var(--white);}
+    .btn-rose:hover{background:var(--rose2);transform:translateY(-1px);}
+
+    /* FOOTER */
+    footer{background:var(--navy);border-top:1px solid rgba(255,255,255,0.06);padding:44px 48px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px;}
+    .fb{display:flex;align-items:center;gap:12px;}
+    .fb svg{width:34px;height:34px;}
+    .fn2{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--white);}
+    .fs{font-size:11px;color:var(--rose);font-style:italic;margin-top:2px;}
+    .fls{display:flex;gap:28px;flex-wrap:wrap;}
+    .fls a{font-size:12px;color:rgba(255,255,255,0.3);text-decoration:none;transition:color 0.2s;}
+    .fls a:hover{color:rgba(255,255,255,0.7);}
+    .fc{font-size:11px;color:rgba(255,255,255,0.18);}
+
+    /* ANIMATIONS */
+    .fu{opacity:0;transform:translateY(20px);transition:opacity 0.65s ease,transform 0.65s ease;}
+    .fu.in{opacity:1;transform:translateY(0);}
+
+    /* MOBILE */
+    @media(max-width:900px){
+      nav{padding:0 16px;height:60px;}
+      .nl{display:none;}
+      .hbg{display:flex;}
+      .page-header{padding:100px 24px 60px;}
+      .blog-main{padding:52px 24px;}
+      .featured{grid-template-columns:1fr;}
+      .post-grid{grid-template-columns:1fr 1fr;}
+      .blog-cta{grid-template-columns:1fr;gap:24px;}
+      footer{flex-direction:column;text-align:center;padding:36px 24px;gap:20px;}
+      .fls{justify-content:center;}
+    }
+    @media(max-width:600px){
+      nav{padding:0 16px;}
+      .page-header{padding:88px 16px 52px;}
+      .blog-main{padding:40px 16px;}
+      .post-grid{grid-template-columns:1fr;}
+      .featured-content{padding:32px 24px;}
+      .featured-visual{padding:32px 24px;}
+      .blog-cta{padding:36px 24px;}
+      footer{padding:28px 16px;}
+      .nb-sub{display:none;}
+    }
+  </style>
+</head>
+<body>
+
+<nav aria-label="Main navigation">
+  <a href="index.html" class="nb">
+    <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="36" cy="36" r="34" fill="#1c2f4a"/>
+      <circle cx="36" cy="36" r="34" fill="none" stroke="#c4788a" stroke-width="2.5"/>
+      <polyline points="16,22 26,52 36,34 46,52 56,22" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="36" cy="62" r="2.5" fill="#c4788a"/>
+    </svg>
+    <div><div class="nb-name">Wallace Admin</div><div class="nb-sub">Virtual Admin for Therapists</div></div>
+  </a>
+  <ul class="nl">
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#pricing">Pricing</a></li>
+    <li><a href="index.html#hiw">How it works</a></li>
+    <li><a href="index.html#faq">FAQ</a></li>
+    <li><a href="blog.html" style="opacity:1;color:var(--rose);">Resources</a></li>
+    <li><a href="index.html#contact" class="cta">Get started</a></li>
+  </ul>
+  <div class="hbg" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="mob" id="mob">
+  <a href="index.html#about" onclick="cm()">About</a>
+  <a href="index.html#services" onclick="cm()">Services</a>
+  <a href="index.html#pricing" onclick="cm()">Pricing</a>
+  <a href="index.html#hiw" onclick="cm()">How it works</a>
+  <a href="index.html#faq" onclick="cm()">FAQ</a>
+  <a href="blog.html" onclick="cm()">Resources</a>
+  <a href="index.html#contact" onclick="cm()">Get started</a>
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <div class="ph-inner">
+    <div class="ph-tag">Resources & Insights</div>
+    <h1>Practical guides for<br>therapists who'd rather<br>be <em>with clients.</em></h1>
+    <p class="ph-lead">No fluff. Just actionable insight on running a private practice — from someone who's worked inside one.</p>
+  </div>
+</div>
+
+<!-- BLOG MAIN -->
+<main class="blog-main">
+
+  <!-- FEATURED POST -->
+  <div class="featured-label fu">Featured article</div>
+  <div class="featured fu">
+    <div class="featured-content">
+      <div>
+        <div class="post-cat">Practice Management</div>
+        <h2 class="post-title">5 signs your therapy practice needs a virtual admin</h2>
+        <p class="post-excerpt">If you're spending Sunday nights catching up on billing or missing calls because you're in session, something has to change. Here's how to know when admin support stops being a luxury and starts being a necessity.</p>
+        <div class="post-meta">By Amy Wallace &nbsp;·&nbsp; Coming soon</div>
+      </div>
+      <div class="coming-soon-badge">Coming soon</div>
+    </div>
+    <div class="featured-visual">
+      <div class="fv-quote">A therapist should never have to choose between their clients and their paperwork.</div>
+    </div>
+  </div>
+
+  <!-- POST GRID -->
+  <div class="grid-label fu">All articles</div>
+  <div class="post-grid fu">
+
+    <div class="post-card">
+      <div>
+        <div class="post-num">01</div>
+        <div class="post-cat">Compliance</div>
+        <h3 class="post-title">How to hire a HIPAA-compliant virtual assistant for your practice</h3>
+        <p class="post-excerpt">Not every VA is qualified to handle protected health information. Here's what to look for — and what to demand in writing before anyone touches your client data.</p>
+      </div>
+      <div>
+        <div class="post-meta" style="margin-bottom:12px;">By Amy Wallace &nbsp;·&nbsp; Coming soon</div>
+        <div class="coming-soon-badge">Coming soon</div>
+      </div>
+    </div>
+
+    <div class="post-card">
+      <div>
+        <div class="post-num">02</div>
+        <div class="post-cat">EHR & Platforms</div>
+        <h3 class="post-title">SimplePractice admin tasks you should stop doing yourself</h3>
+        <p class="post-excerpt">SimplePractice is a powerful platform — but most therapists are using it as a scheduling app. Here's everything it can do that you shouldn't be touching.</p>
+      </div>
+      <div>
+        <div class="post-meta" style="margin-bottom:12px;">By Amy Wallace &nbsp;·&nbsp; Coming soon</div>
+        <div class="coming-soon-badge">Coming soon</div>
+      </div>
+    </div>
+
+    <div class="post-card">
+      <div>
+        <div class="post-num">03</div>
+        <div class="post-cat">Business</div>
+        <h3 class="post-title">The real cost of managing your own therapy practice admin</h3>
+        <p class="post-excerpt">Therapists underestimate how much admin is costing them — not just in time, but in billable hours, no-shows, and burnout. The math is uncomfortable.</p>
+      </div>
+      <div>
+        <div class="post-meta" style="margin-bottom:12px;">By Amy Wallace &nbsp;·&nbsp; Coming soon</div>
+        <div class="coming-soon-badge">Coming soon</div>
+      </div>
+    </div>
+
+    <div class="post-card">
+      <div>
+        <div class="post-num">04</div>
+        <div class="post-cat">Practice Growth</div>
+        <h3 class="post-title">Solo therapist vs group practice: how admin needs differ</h3>
+        <p class="post-excerpt">A solo practice and a group practice have very different admin demands. Understanding the difference helps you build the right support structure from the start.</p>
+      </div>
+      <div>
+        <div class="post-meta" style="margin-bottom:12px;">By Amy Wallace &nbsp;·&nbsp; Coming soon</div>
+        <div class="coming-soon-badge">Coming soon</div>
+      </div>
+    </div>
+
+    <div class="post-card">
+      <div>
+        <div class="post-num">05</div>
+        <div class="post-cat">Hiring</div>
+        <h3 class="post-title">What to look for in a virtual admin for mental health practices</h3>
+        <p class="post-excerpt">Hiring the wrong person for your practice admin can set you back months. Here's the exact checklist to use before signing any agreement.</p>
+      </div>
+      <div>
+        <div class="post-meta" style="margin-bottom:12px;">By Amy Wallace &nbsp;·&nbsp; Coming soon</div>
+        <div class="coming-soon-badge">Coming soon</div>
+      </div>
+    </div>
+
+    <div class="post-card">
+      <div>
+        <div class="post-num">06</div>
+        <div class="post-cat">Billing</div>
+        <h3 class="post-title">Why therapy practices lose money on billing — and how to stop it</h3>
+        <p class="post-excerpt">Denied claims, missed follow-ups, and inconsistent invoicing are costing private practices thousands per year. Most of it is preventable with the right support.</p>
+      </div>
+      <div>
+        <div class="post-meta" style="margin-bottom:12px;">By Amy Wallace &nbsp;·&nbsp; Coming soon</div>
+        <div class="coming-soon-badge">Coming soon</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="blog-cta fu">
+    <div>
+      <h3>Ready to hand off the admin?</h3>
+      <p>One conversation is all it takes. Amy responds within 24 hours — usually the same day.</p>
+    </div>
+    <a href="index.html#contact" class="btn btn-rose">Get started today</a>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fb">
+    <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="36" cy="36" r="34" fill="#243d5c"/>
+      <circle cx="36" cy="36" r="34" fill="none" stroke="#c4788a" stroke-width="2.5"/>
+      <polyline points="16,22 26,52 36,34 46,52 56,22" fill="none" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="36" cy="62" r="2.5" fill="#c4788a"/>
+    </svg>
+    <div><div class="fn2">Wallace Admin</div><div class="fs">Your practice, handled.</div></div>
+  </div>
+  <div class="fls">
+    <a href="index.html#about">About</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#pricing">Pricing</a>
+    <a href="index.html#faq">FAQ</a>
+    <a href="blog.html">Resources</a>
+    <a href="index.html#contact">Contact</a>
+    <a href="mailto:wallace.admin@gmail.com">wallace.admin@gmail.com</a>
+  </div>
+  <div class="fc">© 2025 Wallace Admin · New Jersey & Nationwide</div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('mob').classList.toggle('open');
+}
+function cm(){
+  document.getElementById('mob').classList.remove('open');
+}
+const obs=new IntersectionObserver((e)=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');obs.unobserve(x.target);}});},{threshold:0.08});
+document.querySelectorAll('.fu').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
