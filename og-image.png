@@ -1,0 +1,71 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#1c2f4a"/>
+
+  <!-- Subtle radial glow top right -->
+  <radialGradient id="glow1" cx="85%" cy="15%" r="45%">
+    <stop offset="0%" stop-color="#c4788a" stop-opacity="0.18"/>
+    <stop offset="100%" stop-color="#c4788a" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+
+  <!-- Subtle radial glow bottom left -->
+  <radialGradient id="glow2" cx="10%" cy="90%" r="35%">
+    <stop offset="0%" stop-color="#c4788a" stop-opacity="0.09"/>
+    <stop offset="100%" stop-color="#c4788a" stop-opacity="0"/>
+  </radialGradient>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+
+  <!-- Decorative ring top right -->
+  <circle cx="1080" cy="100" r="200" fill="none" stroke="#c4788a" stroke-width="1" stroke-opacity="0.1"/>
+  <circle cx="1080" cy="100" r="150" fill="none" stroke="#c4788a" stroke-width="0.75" stroke-opacity="0.08"/>
+
+  <!-- Decorative ring bottom left -->
+  <circle cx="120" cy="540" r="160" fill="none" stroke="#c4788a" stroke-width="1" stroke-opacity="0.08"/>
+
+  <!-- Rose accent bar left edge -->
+  <rect x="0" y="0" width="5" height="630" fill="#c4788a"/>
+
+  <!-- Logo mark — centered left column -->
+  <!-- Outer circle fill -->
+  <circle cx="160" cy="290" r="100" fill="#243d5c"/>
+  <!-- Outer circle stroke -->
+  <circle cx="160" cy="290" r="100" fill="none" stroke="#c4788a" stroke-width="4"/>
+  <!-- W polyline scaled up ~2.5x from 72px viewbox -->
+  <polyline points="110,255 138,330 160,290 182,330 210,255" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Rose dot bottom -->
+  <circle cx="160" cy="362" r="7" fill="#c4788a"/>
+
+  <!-- Wordmark -->
+  <text x="300" y="262" font-family="Georgia, 'Times New Roman', serif" font-size="72" font-weight="700" fill="#ffffff" letter-spacing="2">Wallace Admin</text>
+
+  <!-- Subtitle line -->
+  <text x="302" y="306" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="22" font-weight="400" fill="#c4788a" letter-spacing="6">VIRTUAL ADMIN FOR THERAPISTS</text>
+
+  <!-- Divider line -->
+  <line x1="300" y1="326" x2="900" y2="326" stroke="#c4788a" stroke-width="1" stroke-opacity="0.3"/>
+
+  <!-- Tagline -->
+  <text x="302" y="360" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-style="italic" font-weight="400" fill="rgba(255,255,255,0.55)" letter-spacing="1">Your practice, handled.</text>
+
+  <!-- Trust badges row -->
+  <!-- Badge 1 -->
+  <rect x="300" y="410" width="180" height="38" rx="3" fill="rgba(196,120,138,0.12)" stroke="#c4788a" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="390" y="434" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.7)" text-anchor="middle" letter-spacing="1">HIPAA Compliant</text>
+
+  <!-- Badge 2 -->
+  <rect x="494" y="410" width="200" height="38" rx="3" fill="rgba(196,120,138,0.12)" stroke="#c4788a" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="594" y="434" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.7)" text-anchor="middle" letter-spacing="1">SimplePractice · ZocDoc</text>
+
+  <!-- Badge 3 -->
+  <rect x="708" y="410" width="190" height="38" rx="3" fill="rgba(196,120,138,0.12)" stroke="#c4788a" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="803" y="434" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="13" fill="rgba(255,255,255,0.7)" text-anchor="middle" letter-spacing="1">NJ &amp; Nationwide</text>
+
+  <!-- Bottom URL -->
+  <text x="600" y="568" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.25)" text-anchor="middle" letter-spacing="2">wallaceadmin.com</text>
+
+  <!-- Bottom rose line -->
+  <rect x="0" y="620" width="1200" height="10" fill="#c4788a" opacity="0.4"/>
+
+</svg>
