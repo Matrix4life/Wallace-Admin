@@ -3,42 +3,91 @@
 
   <url>
     <loc>https://www.wallaceadmin.com/</loc>
-    <lastmod>2025-05-25</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
 
   <url>
     <loc>https://www.wallaceadmin.com/#about</loc>
-    <lastmod>2025-05-25</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
   <url>
     <loc>https://www.wallaceadmin.com/#services</loc>
-    <lastmod>2025-05-25</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.wallaceadmin.com/#pricing</loc>
-    <lastmod>2025-05-25</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
   <url>
     <loc>https://www.wallaceadmin.com/#hiw</loc>
-    <lastmod>2025-05-25</lastmod>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
     <loc>https://www.wallaceadmin.com/#contact</loc>
-    <lastmod>2025-05-25</lastmod>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.wallaceadmin.com/blog.html</loc>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://www.wallaceadmin.com/blog-1-signs-you-need-a-virtual-admin.html</loc>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.wallaceadmin.com/blog-2-how-to-hire-hipaa-compliant-virtual-assistant.html</loc>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.wallaceadmin.com/blog-3-simplepractice-admin-tasks.html</loc>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.wallaceadmin.com/blog-4-real-cost-of-therapy-practice-admin.html</loc>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.wallaceadmin.com/blog-5-solo-vs-group-practice-admin.html</loc>
+    <lastmod>2025-06-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.wallaceadmin.com/blog-6-what-to-look-for-virtual-admin.html</loc>
+    <lastmod>2025-06-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
