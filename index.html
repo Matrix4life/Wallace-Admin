@@ -69,14 +69,18 @@
       "name": "United States"
     }
   ],
-  "serviceType": [
-    "Therapy Practice Administration",
-    "Medical Billing Support",
-    "Patient Scheduling",
-    "EHR Management",
-    "HIPAA Compliant Virtual Assistant",
-    "Social Media Management for Therapists"
-  ],
+  "hasOfferCatalog": {
+  "@type": "OfferCatalog",
+  "name": "Virtual Admin Services for Therapists",
+  "itemListElement": [
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Therapy Practice Administration"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Medical Billing Support"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Patient Scheduling"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"EHR Management"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"HIPAA Compliant Virtual Assistant"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Social Media Management for Therapists"}}
+  ]
+},
   "priceRange": "$29-$1600",
   "openingHours": ["Mo-Fr 08:00-22:00"],
   "knowsAbout": ["SimplePractice", "ZocDoc", "Headway", "HIPAA Compliance", "Medical Billing", "Therapy Practice Management"]
